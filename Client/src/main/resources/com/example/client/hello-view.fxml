@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="524.0" prefWidth="351.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.ClientController">
+<VBox prefHeight="526.0" prefWidth="456.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.ClientController">
     <children>
-        <MenuBar prefHeight="25.0" prefWidth="440.0" VBox.vgrow="NEVER">
+        <MenuBar prefHeight="25.0" prefWidth="250.0">
             <menus>
                 <Menu mnemonicParsing="false" text="Файл">
                     <items>
@@ -43,15 +43,15 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <AnchorPane prefHeight="513.0" prefWidth="472.0">
+        <AnchorPane prefHeight="499.0" prefWidth="482.0">
             <children>
                 <ListView fx:id="listView" layoutX="20.0" layoutY="349.0" prefHeight="64.0" prefWidth="403.0" />
-                <TextField fx:id="input" layoutX="20.0" layoutY="446.0" onAction="#sendMsg" prefHeight="49.0" prefWidth="335.0" promptText="Клиент" />
-            <ListView fx:id="listView1" layoutX="9.0" layoutY="103.0" prefHeight="215.0" prefWidth="136.0" />
-            <Button layoutX="355.0" layoutY="456.0" mnemonicParsing="false" text="отправить" />
-            <Button layoutX="178.0" layoutY="251.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="--&gt;" />
-            <ListView fx:id="listView11" layoutX="295.0" layoutY="114.0" prefHeight="215.0" prefWidth="127.0" />
-            <Button layoutX="178.0" layoutY="222.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="&lt;--" />
+                <TextField fx:id="input" layoutX="20.0" layoutY="446.0" onAction="#sendMsg" prefHeight="43.0" prefWidth="330.0" promptText="Клиент" />
+            <ListView fx:id="listView1" layoutX="14.0" layoutY="115.0" prefHeight="197.0" prefWidth="136.0" />
+            <Button layoutX="363.0" layoutY="446.0" mnemonicParsing="false" text="отправить" />
+            <Button layoutX="178.0" layoutY="218.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="--&gt;" />
+            <ListView fx:id="listView11" layoutX="275.0" layoutY="115.0" prefHeight="197.0" prefWidth="127.0" />
+            <Button layoutX="178.0" layoutY="250.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="&lt;--" />
             <Button layoutX="178.0" layoutY="282.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Удалить" />
             </children>
         </AnchorPane>
