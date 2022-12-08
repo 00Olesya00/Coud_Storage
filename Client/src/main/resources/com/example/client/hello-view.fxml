@@ -46,13 +46,13 @@
         <AnchorPane prefHeight="499.0" prefWidth="482.0">
             <children>
                 <ListView fx:id="listView" layoutX="20.0" layoutY="349.0" prefHeight="64.0" prefWidth="403.0" />
-                <TextField fx:id="input" layoutX="20.0" layoutY="446.0" onAction="#sendMsg" prefHeight="43.0" prefWidth="330.0" promptText="Клиент" />
-            <ListView fx:id="listView1" layoutX="14.0" layoutY="115.0" prefHeight="197.0" prefWidth="136.0" />
-            <Button layoutX="363.0" layoutY="446.0" mnemonicParsing="false" text="отправить" />
-            <Button layoutX="178.0" layoutY="218.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="--&gt;" />
-            <ListView fx:id="listView11" layoutX="275.0" layoutY="115.0" prefHeight="197.0" prefWidth="127.0" />
-            <Button layoutX="178.0" layoutY="250.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="&lt;--" />
-            <Button layoutX="178.0" layoutY="282.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Удалить" />
+                <TextField fx:id="input" layoutX="27.0" layoutY="446.0" onAction="#sendMsg" prefHeight="43.0" prefWidth="330.0" promptText="Клиент" />
+            <ListView fx:id="listView1" layoutX="27.0" layoutY="112.0" prefHeight="197.0" prefWidth="136.0" />
+            <Button layoutX="362.0" layoutY="452.0" mnemonicParsing="false" text="отправить" />
+            <Button layoutX="198.0" layoutY="211.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="--&gt;" />
+            <ListView fx:id="listView11" layoutX="310.0" layoutY="112.0" prefHeight="197.0" prefWidth="127.0" />
+            <Button layoutX="198.0" layoutY="242.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="&lt;--" />
+            <Button layoutX="198.0" layoutY="273.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Удалить" />
             </children>
         </AnchorPane>
     </children>
