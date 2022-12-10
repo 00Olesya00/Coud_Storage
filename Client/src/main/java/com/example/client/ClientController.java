@@ -2,11 +2,17 @@ package com.example.client;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+
+import com.dlsc.formsfx.view.controls.SimpleRadioButtonControl;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+
 import java.net.Socket;
 import java.net.URL;
 import java.nio.file.Files;
@@ -18,8 +24,11 @@ import java.util.ResourceBundle;
 public class ClientController implements Initializable {
 
     private static final int SOCKET_PORT = 8189;// порт
-    public ListView<String> listView;
+    public ListView<String> statuses;
     public ListView<String> listView1;
+    public ListView<String> listView11;
+    public Button ButtonOn;
+
     public Path clientDir;
     public final static String FILE_TO_LOC = "Client_Files"; //Расположение файлов
     public TextField input;
@@ -46,8 +55,13 @@ public class ClientController implements Initializable {
     }
 //    private void addMessage(String msg) {Platform.runLater(() -> listView.getItems().add(msg));// обрабатываем сообщение, добовляем в ListView
  //}
-private void addMessage(String msg)
-{Platform.runLater(() -> input.setText(msg));} // отправляем на сервер
+private void addStatus(String msg)
+{Platform.runLater(() -> statuses.getItems().add(msg));} // Gjk
+
+
+   // private void addStatus (String msg)
+
+
 
 
  private void initClickListener(){
@@ -57,18 +71,19 @@ private void addMessage(String msg)
         input.setText(item);
  }
  });
+
 }
   private void fillFileView() throws IOException {
         List<String> files = Files.list(clientDir)
                 .map(p -> p.getFileName().toString()).toList();
       Platform.runLater(() -> listView1.getItems().addAll(files));
 
-
-
     }
 
-//    public void _sendingp_resurs (ActionEvent actionEvent){ //дописать кнопку
+//    public void _sendingp_resurs (ActionEvent actionEvent) { //дописать кнопку
 //        Button source = (Button) actionEvent.getSource();
+//        ButtonOn.setOnMouseClicked((EventHandler<? super MouseEvent>) source);
+//    }
 
 
     @Override
@@ -76,7 +91,7 @@ private void addMessage(String msg)
         try {
               Socket socket = new Socket("localhost",SOCKET_PORT); //поднимаем сокет
 
-            net = new IONet(this::addMessage, socket); // получение сообщения (call back)
+            net = new IONet(this::addStatus, socket); // получение сообщения (call back)
 
             buf = new byte[9000];
                clientDir  = Paths.get(FILE_TO_LOC);

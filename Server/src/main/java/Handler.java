@@ -1,8 +1,7 @@
 import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.nio.file.*;
 
 public class Handler implements Runnable{
     private boolean running;
@@ -41,18 +40,24 @@ public class Handler implements Runnable{
                 }else if (command.equals("#file#")){
                     String fileName = is.readUTF();
                     long size = is.readLong();
-                    try (FileOutputStream fos = new FileOutputStream(ServerDir.resolve(fileName).toFile())){
+                    try (FileOutputStream fos = new FileOutputStream(
+                            ServerDir.resolve(fileName).toFile())){
+                        os.writeUTF("Файл: " +fileName+" - был создан \n");
 
                     for (int i = 0; i < (size + SIZE-1)/SIZE; i++) {
                         int read = is.read(buf);
                         fos.write(buf,0,read);
+                        os.writeUTF(" Принято: "+(i+1)+ " байт");
+
                     }
                     }
                 }
-                os.writeUTF("Файл получен");
+                os.writeUTF("\n Файл успешно получен ");
 //                System.out.println("Получено: " + messege );
 //                os.write((messege+"\n").getBytes(StandardCharsets.UTF_8));
+
             }
+
         }catch (Exception e) {
             e.printStackTrace();
         }
@@ -62,4 +67,13 @@ public class Handler implements Runnable{
         is.close();
         socket.close();
     }
+//private void WatchServiceServer() throws IOException {
+//    WatchService watchService = FileSystems.getDefault().newWatchService();
+//                new Thread((-> {
+//        try {
+//            while (true){
+//                WatchKey watchKey = watchService.take();
+//            }
+//        }
+//    });
 }

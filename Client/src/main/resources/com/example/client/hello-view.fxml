@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="526.0" prefWidth="456.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.ClientController">
+<VBox prefHeight="526.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.ClientController">
     <children>
         <MenuBar prefHeight="25.0" prefWidth="250.0">
             <menus>
@@ -19,10 +20,6 @@
                         <MenuItem mnemonicParsing="false" text="Новый" />
                         <MenuItem mnemonicParsing="false" text="Открыть…" />
                         <Menu mnemonicParsing="false" text="Выбрать из ранее открытых" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Закрыть" />
-                        <MenuItem mnemonicParsing="false" text="Сохранить" />
-                        <MenuItem mnemonicParsing="false" text="Настройки…" />
                         <MenuItem mnemonicParsing="false" text="Выйти" />
                     </items>
                 </Menu>
@@ -45,14 +42,26 @@
         </MenuBar>
         <AnchorPane prefHeight="499.0" prefWidth="482.0">
             <children>
-                <ListView fx:id="listView" layoutX="20.0" layoutY="349.0" prefHeight="64.0" prefWidth="403.0" />
+                <ListView fx:id="statuses" layoutX="28.0" layoutY="306.0" prefHeight="137.0" prefWidth="416.0" />
+                <Label layoutX="209.0" layoutY="266.0" text="Статус " textFill="#186924">
+               <font>
+                  <Font size="17.0" />
+               </font></Label>
                 <TextField fx:id="input" layoutX="27.0" layoutY="446.0" onAction="#sendMsg" prefHeight="43.0" prefWidth="330.0" promptText="Клиент" />
-            <ListView fx:id="listView1" layoutX="27.0" layoutY="112.0" prefHeight="197.0" prefWidth="136.0" />
-            <Button layoutX="362.0" layoutY="452.0" mnemonicParsing="false" text="отправить" />
-            <Button layoutX="198.0" layoutY="211.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="--&gt;" />
-            <ListView fx:id="listView11" layoutX="310.0" layoutY="112.0" prefHeight="197.0" prefWidth="127.0" />
-            <Button layoutX="198.0" layoutY="242.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="&lt;--" />
-            <Button layoutX="198.0" layoutY="273.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Удалить" />
+            <ListView fx:id="listView1" layoutX="28.0" layoutY="52.0" prefHeight="197.0" prefWidth="136.0" />
+            <Button fx:id="ButtonOn"  layoutX="362.0" layoutY="452.0" mnemonicParsing="false" text="отправить" />
+            <Button layoutX="196.0" layoutY="135.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="--&gt;" />
+            <ListView fx:id="listView11" layoutX="306.0" layoutY="52.0" prefHeight="197.0" prefWidth="136.0" />
+            <Button layoutX="196.0" layoutY="166.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="&lt;--" />
+            <Button layoutX="194.0" layoutY="217.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Удалить" />
+            <Label layoutX="66.0" layoutY="14.0" text="Клиент">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
+            <Label layoutX="349.0" layoutY="14.0" text="Сервер">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
             </children>
         </AnchorPane>
     </children>
