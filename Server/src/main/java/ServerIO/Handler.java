@@ -1,7 +1,12 @@
-import java.io.*;
+package ServerIO;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Handler implements Runnable{
     private boolean running;
@@ -33,8 +38,8 @@ public class Handler implements Runnable{
 //                String messege = new String(buf,0,read)
 //                        .trim();
                 String command = is.readUTF();
-                if (command.equals("выйти"))
-                {os.writeUTF("Соединение с сервером прервано...\n");
+                if (command.equals("quit")) {
+                    os.writeUTF("Client disconnected");
                     close();
                     break;
                 }else if (command.equals("#file#")){

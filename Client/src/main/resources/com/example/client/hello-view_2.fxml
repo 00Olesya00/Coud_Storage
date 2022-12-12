@@ -20,6 +20,5 @@
     </MenuBar>
     <AnchorPane VBox.vgrow="ALWAYS">
         <ListView fx:id="listView" prefHeight="368.0" prefWidth="264.0"/>
-        <TextField onAction="#sendMsg" fx:id="input" layoutY="368.0" prefHeight="39.0" prefWidth="264.0"/>
     </AnchorPane>
 </VBox>

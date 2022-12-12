@@ -1,68 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="526.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.ClientController">
-    <children>
-        <MenuBar prefHeight="25.0" prefWidth="250.0">
-            <menus>
-                <Menu mnemonicParsing="false" text="Файл">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Новый" />
-                        <MenuItem mnemonicParsing="false" text="Открыть…" />
-                        <Menu mnemonicParsing="false" text="Выбрать из ранее открытых" />
-                        <MenuItem mnemonicParsing="false" text="Выйти" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Редактировать">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Отменить" />
-                        <MenuItem mnemonicParsing="false" text="Повторить" />
-                        <MenuItem mnemonicParsing="false" text="Вырезать" />
-                        <MenuItem mnemonicParsing="false" text="Скопировать" />
-                        <MenuItem mnemonicParsing="false" text="Вставить" />
-                        <MenuItem mnemonicParsing="false" text="Удалить" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-        <AnchorPane prefHeight="499.0" prefWidth="482.0">
-            <children>
-                <ListView fx:id="statuses" layoutX="28.0" layoutY="306.0" prefHeight="137.0" prefWidth="416.0" />
-                <Label layoutX="209.0" layoutY="266.0" text="Статус " textFill="#186924">
+<VBox prefHeight="632.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.ClientController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Файл">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#logout" text="Logout" />
+            <MenuItem mnemonicParsing="false" onAction="#quit" text="Quit" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+      <SplitPane orientation="VERTICAL" prefHeight="58.0" prefWidth="815.0">
+        <items>
+          <AnchorPane fx:id="regAnchorePane" minHeight="0.0" minWidth="0.0" prefHeight="57.0" prefWidth="813.0">
+               <children>
+                   <TextField id="loginField" fx:id="loginField" layoutX="77.0" layoutY="15.0" />
+                   <PasswordField id="passField" fx:id="passField" layoutX="400.0" layoutY="15.0" />
+                   <Button fx:id="authButton" layoutX="582.0" layoutY="14.0" mnemonicParsing="false" onAction="#singInButton" prefHeight="27.0" prefWidth="91.0" text="Войти" />
+                   <Button fx:id="signUpButton" layoutX="693.0" layoutY="15.0" mnemonicParsing="false" onAction="#signUp" prefHeight="27.0" prefWidth="91.0" text="Регистрация" />
+                   <Label fx:id="labelLogin" layoutX="21.0" layoutY="19.0" text="Логин" />
+                   <Label fx:id="labelPass" layoutX="318.0" layoutY="19.0" text="Пароль" />
+                  <Label id="HelloLabel" fx:id="helloLabel" disable="true" layoutX="22.0" layoutY="10.0" prefHeight="36.0" prefWidth="553.0" visible="false" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="486.0" prefWidth="815.0">
+         <children>
+            <Label layoutX="370.0" layoutY="366.0" prefHeight="29.0" prefWidth="51.0" text="Статус" textFill="#1e6e33">
                <font>
-                  <Font size="17.0" />
-               </font></Label>
-                <TextField fx:id="input" layoutX="27.0" layoutY="446.0" onAction="#sendMsg" prefHeight="43.0" prefWidth="330.0" promptText="Клиент" />
-            <ListView fx:id="listView1" layoutX="28.0" layoutY="52.0" prefHeight="197.0" prefWidth="136.0" />
-            <Button fx:id="ButtonOn"  layoutX="362.0" layoutY="452.0" mnemonicParsing="false" text="отправить" />
-            <Button layoutX="196.0" layoutY="135.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="--&gt;" />
-            <ListView fx:id="listView11" layoutX="306.0" layoutY="52.0" prefHeight="197.0" prefWidth="136.0" />
-            <Button layoutX="196.0" layoutY="166.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="&lt;--" />
-            <Button layoutX="194.0" layoutY="217.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="80.0" text="Удалить" />
-            <Label layoutX="66.0" layoutY="14.0" text="Клиент">
-               <font>
-                  <Font size="15.0" />
-               </font></Label>
-            <Label layoutX="349.0" layoutY="14.0" text="Сервер">
-               <font>
-                  <Font size="15.0" />
-               </font></Label>
-            </children>
-        </AnchorPane>
-    </children>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ListView id="listServer" fx:id="listServer" layoutX="23.0" layoutY="87.0" prefHeight="259.0" prefWidth="315.0" />
+            <ListView id="listServer" fx:id="listServer1" layoutX="466.0" layoutY="83.0" prefHeight="259.0" prefWidth="315.0" />
+            <Button id="sendCopy" fx:id="sendCopyButton" layoutX="359.0" layoutY="201.0" mnemonicParsing="false" onAction="#sendCopy" prefHeight="29.0" prefWidth="91.0" text="Отправить" />
+            <Button id="getCopy" fx:id="getCopyButton" layoutX="358.0" layoutY="240.0" mnemonicParsing="false" onAction="#getCopy" prefHeight="28.0" prefWidth="91.0" text="Получить" />
+            <Button id="deleteClient" layoutX="60.0" layoutY="354.0" mnemonicParsing="false" onAction="#deleteClientAction" prefHeight="28.0" prefWidth="91.0" text="Удалить" />
+            <Button id="renameClient" layoutX="170.0" layoutY="354.0" mnemonicParsing="false" onAction="#renameClientAction" prefHeight="27.0" prefWidth="126.0" text="Переименовать" />
+            <Button id="deleteServer" fx:id="deleteServerButon" layoutX="513.0" layoutY="354.0" mnemonicParsing="false" onAction="#deleteOnServer" prefHeight="28.0" prefWidth="91.0" text="Удалить" />
+            <Button id="renameServer" fx:id="renameServerButton" layoutX="635.0" layoutY="354.0" mnemonicParsing="false" onAction="#renameServer" prefHeight="27.0" prefWidth="91.0" text="Переименовать" />
+            <Label id="labelClient" fx:id="labelClient" layoutX="35.0" layoutY="51.0" prefHeight="19.0" prefWidth="315.0" />
+            <Label id="labelServer" layoutX="456.0" layoutY="51.0" prefHeight="19.0" prefWidth="315.0" />
+            <Label id="gegAuthInfo" fx:id="regAuthInfoLabel" disable="true" layoutX="264.0" layoutY="14.0" prefHeight="24.0" prefWidth="315.0" textFill="#d7490c" />
+            <ListView id="listClient" fx:id="listClient" layoutX="24.0" layoutY="403.0" prefHeight="94.0" prefWidth="759.0" />
+         </children>
+    </AnchorPane>
+  </children>
 </VBox>
