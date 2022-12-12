@@ -4,49 +4,21 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-
-<VBox prefHeight="526.0" prefWidth="456.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.client.ClientController">
-    <children>
-        <MenuBar prefHeight="25.0" prefWidth="250.0">
-            <menus>
-                <Menu mnemonicParsing="false" text="Файл">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Новый" />
-                        <Menu mnemonicParsing="false" text="Выбрать из ранее открытых" />
-                        <MenuItem mnemonicParsing="false" text="Открыть…" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Закрыть" />
-                        <MenuItem mnemonicParsing="false" text="Сохранить" />
-                        <MenuItem mnemonicParsing="false" text="Настройки…" />
-                        <MenuItem mnemonicParsing="false" text="Выйти" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Редактировать">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Отменить" />
-                        <MenuItem mnemonicParsing="false" text="Повторить" />
-                        <MenuItem mnemonicParsing="false" text="Вырезать" />
-                        <MenuItem mnemonicParsing="false" text="Скопировать" />
-                        <MenuItem mnemonicParsing="false" text="Вставить" />
-                        <MenuItem mnemonicParsing="false" text="Удалить" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-        <AnchorPane prefHeight="499.0" prefWidth="482.0">
-            <children>
-                <ListView fx:id="listView" layoutX="20.0" layoutY="59.0" prefHeight="354.0" prefWidth="403.0" />
-                <TextField fx:id="input" layoutX="20.0" layoutY="446.0" onAction="#sendMsg" prefHeight="43.0" prefWidth="330.0" promptText="Клиент" />
-            </children>
-        </AnchorPane>
-    </children>
+<VBox prefHeight="435.0" prefWidth="264.0" xmlns="http://javafx.com/javafx/15.0.1"
+      fx:controller="com.example.client.ClientController"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <MenuBar VBox.vgrow="NEVER">
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" text="Quit"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp"/>
+        </Menu>
+    </MenuBar>
+    <AnchorPane VBox.vgrow="ALWAYS">
+        <ListView fx:id="listView" prefHeight="368.0" prefWidth="264.0"/>
+    </AnchorPane>
 </VBox>
